@@ -98,7 +98,7 @@ def post_message():
 
 @app.route("/test", methods=["GET"])
 def test():
-    return "Testing"
+    return "Tested"
 
 if __name__ == '__main__':
     # We also run the server differently depending on the environment.
