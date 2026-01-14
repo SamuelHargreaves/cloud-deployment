@@ -17,13 +17,13 @@ jobs:
       - name: Copy app to EC2
         uses: appleboy/scp-action@v0.1.4
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: "ec2-user"
-          port: 22
-          key: ${{ secrets.EC2_SSH_KEY }}
-          source: message_server
-          target: ~/message_server
-          strip_components: 1
+        host: ${{ secrets.EC2_HOST }}
+        username: ec2-user
+        key: ${{ secrets.EC2_SSH_KEY }}
+        source: codebases/message_server
+        target: ~/message-server
+        strip_components: 2
+
 
       - name: Build and run on EC2
         uses: appleboy/ssh-action@v1.0.3
