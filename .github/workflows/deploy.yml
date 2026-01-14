@@ -21,8 +21,8 @@ jobs:
           username: "ec2-user"
           port: 22
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: message-server/*
-          target: ~/message-server
+          source: message_server/*
+          target: ~/message_server
 
       - name: Build and run on EC2
         uses: appleboy/ssh-action@v1.0.3
