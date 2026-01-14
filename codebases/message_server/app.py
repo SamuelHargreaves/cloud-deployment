@@ -96,6 +96,10 @@ def post_message():
     # And redirect to the main page
     return redirect(url_for("get_messages"))
 
+@app.route("/test", methods=["GET"])
+def test():
+    return "Test"
+
 if __name__ == '__main__':
     # We also run the server differently depending on the environment.
     # In production we don't want the fancy error messages — users won't know
