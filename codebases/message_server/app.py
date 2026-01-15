@@ -106,7 +106,7 @@ def delete_all_entries():
     
     connection = psycopg.connect(POSTGRES_URL)
     cursor = connection.cursor()
-    cursor.execute("TRUNCATE TABLE messages")
+    cursor.execute("TRUNCATE TABLE messages;")
     connection.commit()
 
    
