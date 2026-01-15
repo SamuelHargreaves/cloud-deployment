@@ -96,6 +96,19 @@ def post_message():
     # And redirect to the main page
     return redirect(url_for("get_messages"))
 
+@app.route("/delete", methods=["POST"])
+def delete_all_entries():
+    
+    # Insert a new message record into the database
+    connection = psycopg.connect(POSTGRES_URL)
+    cursor = connection.cursor()
+    cursor.execute("TRUNCATE TABLE messages")
+    connection.commit()
+
+    # And redirect to the main page
+    return redirect(url_for("get_messages"))
+
+
 @app.route("/test", methods=["GET"])
 def test():
     return "Tested"
