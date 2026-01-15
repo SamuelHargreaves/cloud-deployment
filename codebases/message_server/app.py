@@ -79,6 +79,10 @@ def generate_form():
         <input type="text" name="message">
         <input type="submit" value="Send">
     </form>
+
+    <form action="/delete" method="POST" style="margin-top:10px;">
+        <input type="submit" value="Delete all messages">
+    </form>
     """
 
 # This method receives the POST request from the form above
@@ -99,13 +103,13 @@ def post_message():
 @app.route("/delete", methods=["POST"])
 def delete_all_entries():
     
-    # Insert a new message record into the database
+    
     connection = psycopg.connect(POSTGRES_URL)
     cursor = connection.cursor()
     cursor.execute("TRUNCATE TABLE messages")
     connection.commit()
 
-    # And redirect to the main page
+   
     return redirect(url_for("get_messages"))
 
 
